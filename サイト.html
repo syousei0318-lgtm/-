@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シンプル音楽プレイヤー</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
+        .music-item { margin-bottom: 30px; padding: 15px; border-bottom: 1px solid #ddd; }
+        .controls { margin-top: 10px; }
+        button { padding: 8px 12px; font-size: 14px; cursor: pointer; }
+        audio { width: 100%; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>マイ・ライブラリ</h2>
+
+    <div class="music-item">
+        <p>幸福刑</p>
+        <audio id="audio1" controls src="幸福刑.mp3"></audio>
+        <div class="controls">
+            <button onclick="skip('audio1', -5)">⏪ 5秒戻る</button>
+            <button onclick="skip('audio1', 5)">5秒進む ⏩</button>
+        </div>
+    </div>
+
+    <div class="music-item">
+        <p>バベル</p>
+        <audio id="audio2" controls src="ばべる.mp3"></audio>
+        <div class="controls">
+            <button onclick="skip('audio2', -5)">⏪ 5秒戻る</button>
+            <button onclick="skip('audio2', 5)">5秒進む ⏩</button>
+        </div>
+    </div>
+
+    <script>
+        // 進む・戻るを1つの関数にまとめました
+        function skip(id, seconds) {
+            let audio = document.getElementById(id);
+            audio.currentTime += seconds;
+        }
+    </script>
+
+</body>
+</html>
